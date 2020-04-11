@@ -26,3 +26,9 @@ firstName="$(readName)"
 # invoke nameValidation 
 nameValidation $firstName
 
+echo "Enter the Last Name"
+#invoke readName
+LastName="$(readName)"
+# invoke nameValidation
+nameValidation $LastName
+
