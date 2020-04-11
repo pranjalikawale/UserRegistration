@@ -43,7 +43,7 @@ validation $email $emailPattern
 echo "Enter the Mobile Number"
 # invoke read String
 mobile="$(readString)"
-mobilePattern="^[0-9]{2}[[:space:]][0-9]{10}$"
+mobilePattern="^[0-9]{2}[ ][0-9]{10}$"
 # invoke validation
 validation $mobile $mobilePattern
 
