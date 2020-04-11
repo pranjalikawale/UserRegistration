@@ -22,7 +22,7 @@ function readName()
 namePattern="^[A-Z]{1}[a-z]{2}$"
 echo "Enter the First Name"
 #invoke readName
-firstName="(readName)" 
+firstName="$(readName)" 
 # invoke nameValidation 
 nameValidation $firstName
 
