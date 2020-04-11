@@ -46,3 +46,10 @@ mobile="$(readString)"
 mobilePattern="^[0-9]{2}[[:space:]][0-9]{10}$"
 # invoke validation
 validation $mobile $mobilePattern
+
+echo "Enter the Password"
+#invoke read String
+password="$(readString)"
+passwordPattern="^[a-zA-Z]{1}[a-zA-Z0-9]{7,}$"
+# invoke validation
+validation $password $passwordPattern
