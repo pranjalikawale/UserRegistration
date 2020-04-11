@@ -53,7 +53,9 @@ password="$(readString)"
 # minimum 8 character long
 passwordPattern="^[a-zA-Z]{1}[a-zA-Z0-9]{7,}$"
 #check in expression for Upper Case
-passwordPattern="(?=.*[A-Z])^[a-zA-Z]{1}[a-zA-Z0-9]{7,}\s$"
+passwordPattern="(?=.*[A-Z])^[a-zA-Z]{1}[a-zA-Z0-9]{7,}$"
+#check for numeric value
+passwordPattern="(?=.*[A-Z])(?=.*[0-9])^[a-zA-Z]{1}[a-zA-Z0-9]{7,}$"
 # invoke validation
 validation $password $passwordPattern
 
