@@ -3,32 +3,39 @@
 shopt -s extglob
 
 # check for name validation
-function nameValidation()
+function validation()
 {
-	if [[ $1 =~ $namePattern  ]]
+	if [[ $1 =~ $2  ]]
 	then
-		echo "$1 is valid name"
+		echo "$1 is valid"
 	else
-		echo "$1 is invalid name"
+		echo "$1 is invalid"
 	fi
 }
+
 # read name
-function readName()
+function readString()
 {
-	read name
-	echo $name
+	read string
+	echo $string
 }
 
 namePattern="^[A-Z]{1}[a-z]{2}$"
 echo "Enter the First Name"
-#invoke readName
-firstName="$(readName)" 
-# invoke nameValidation 
-nameValidation $firstName
+#invoke read String
+firstName="$(readString)" 
+# invoke validation 
+validation $firstName $namePattern
 
 echo "Enter the Last Name"
-#invoke readName
-LastName="$(readName)"
-# invoke nameValidation
-nameValidation $LastName
+#invoke read string
+lastName="$(readString)"
+# invoke Validation
+validation $lastName $namePattern
 
+echo "Enter the Email"
+#invoke read String
+email="$(readString)"
+emailPattern="^[a-z]{1}[a-z0-9]{1,132}([.|_|+|-]?[a-z0-9]{1,122}+)?@[a-z0-9]{1,310}(\.[a-z]{2,4})(\.[a-z]{2})?$"
+# invoke validation
+validation $email $emailPattern
