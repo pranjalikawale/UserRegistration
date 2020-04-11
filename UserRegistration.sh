@@ -39,3 +39,10 @@ email="$(readString)"
 emailPattern="^[a-z]{1}[a-z0-9]{1,132}([.|_|+|-]?[a-z0-9]{1,122}+)?@[a-z0-9]{1,310}(\.[a-z]{2,4})(\.[a-z]{2})?$"
 # invoke validation
 validation $email $emailPattern
+
+echo "Enter the Mobile Number"
+#invoke read String
+mobile="$(readString)"
+mobilePattern="^[0-9]{2}[[:space:]][0-9]{10}$"
+# invoke validation
+validation $mobile $mobilePattern
