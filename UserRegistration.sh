@@ -5,11 +5,13 @@ shopt -s extglob
 # check for name validation
 function validation()
 {
-	if [[ $1 =~ $2  ]]
+	local field=$1
+	local pattern=$2
+	if [[ $field =~ $pattern  ]]
 	then
-		echo "$1 is valid"
+		echo "$field is valid"
 	else
-		echo "$1 is invalid"
+		echo "$field is invalid"
 	fi
 }
 
@@ -36,7 +38,7 @@ validation $lastName $namePattern
 echo "Enter the Email"
 # invoke read String
 email="$(readString)"
-emailPattern="^[a-z]{1}[a-z0-9]{1,132}([.|_|+|-]?[a-z0-9]{1,122}+)?@[a-z0-9]{1,310}(\.[a-z]{2,4})(\.[a-z]{2})?$"
+emailPattern="^[a-z]{1}[a-z0-9]{1,}([.|_|+|-]?[a-z0-9]{1,}+)?@[a-z0-9]{1,}(\.[a-z]{2,4})(\.[a-z]{2})?$"
 # invoke validation
 validation $email $emailPattern
 
@@ -57,7 +59,7 @@ passwordPattern="(?=.*[A-Z])^[a-zA-Z]{1}[a-zA-Z0-9]{7,}$"
 # check for numeric value
 passwordPattern="(?=.*[A-Z])(?=.*[0-9])^[a-zA-Z]{1}[a-zA-Z0-9]{7,}$"
 # check for special Symbol 
-passwordPattern="(?=.*[A-Z])(?=.*[0-9])(?=.*[#?!@$%^&*-])^[a-zA-Z]{1}[a-zA-Z0-9#?!@$%^&*-]{7,}$"
+passwordPattern="(?=.*[A-Z])(?=.*[0-9])(?=.[^#|?|!|@|$|%|^|&|*|-]*[#|?|!|@|$|%|^|&|*|-][^#|?|!|@|$|%|^|&|*|-]*$)^[a-zA-Z]{1}[a-zA-Z0-9#?!@$%^&*-]{7,}$"
 # invoke validation
 validation $password $passwordPattern
 
